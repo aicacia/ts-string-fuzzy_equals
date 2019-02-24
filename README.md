@@ -3,7 +3,7 @@
 string fuzzy equals
 
 ```ts
-import { fuzzyEquals } from "@stembord/string-fuzzy_equals";
+import { fuzzyEquals } from "@aicacia/string-fuzzy_equals";
 
 fuzzyEquals("cart", "CartWheel") === true;
 fuzzyEquals("Cart", "CartWheel", true) === true;
