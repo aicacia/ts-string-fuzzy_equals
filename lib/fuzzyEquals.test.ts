@@ -12,6 +12,7 @@ tape(
     assert.equal(fuzzyEquals("art", "CartWheel"), true);
     assert.equal(fuzzyEquals("eeel", "CartWheel"), false);
     assert.equal(fuzzyEquals("dog", "CartWheel"), false);
+    assert.equal(fuzzyEquals("cartwheels", "CartWheel"), false);
     assert.end();
   }
 );
@@ -25,5 +26,6 @@ tape("fuzzyEquals(query, text, caseSensitive = true)", (assert: tape.Test) => {
   assert.equal(fuzzyEquals("art", "CartWheel", true), true);
   assert.equal(fuzzyEquals("eeel", "CartWheel", true), false);
   assert.equal(fuzzyEquals("dog", "CartWheel", true), false);
+  assert.equal(fuzzyEquals("CartWheels", "CartWheel"), false);
   assert.end();
 });
