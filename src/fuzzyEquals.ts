@@ -1,8 +1,8 @@
-export const fuzzyEquals = (
+export function fuzzyEquals(
   query: string,
   text: string,
-  caseSensitive: boolean = false
-) => {
+  caseSensitive = false
+) {
   const textLength = text.length,
     queryLength = query.length;
 
@@ -16,14 +16,14 @@ export const fuzzyEquals = (
       textLength
     );
   }
-};
+}
 
-export const fuzzyEqualsImpl = (
+export function fuzzyEqualsImpl(
   query: string,
   queryLength: number,
   text: string,
   textLength: number
-) => {
+) {
   let i = 0,
     j = 0;
 
@@ -40,4 +40,4 @@ export const fuzzyEqualsImpl = (
   }
 
   return true;
-};
+}

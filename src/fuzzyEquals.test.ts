@@ -1,5 +1,5 @@
 import * as tape from "tape";
-import { fuzzyEquals } from "../lib";
+import { fuzzyEquals } from ".";
 
 tape(
   "fuzzyEquals(query, text[, caseSensitive = false])",
