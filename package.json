@@ -1,23 +1,25 @@
 {
   "name": "@aicacia/string-fuzzy_equals",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "string fuzzy equals",
   "repository": {
     "type": "git",
     "url": "https://github.com/aicacia/ts-string-fuzzy_equals.git"
   },
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "module": "esm/index.js",
+  "main": "cjs/index.js",
+  "types": "cjs/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "doc": "typedoc --entryPoints src",
-    "prepublishOnly": "npm run clean && npm run build",
+    "buildESM": "rollup -c",
+    "doc": "typedoc",
+    "prepublishOnly": "npm run clean && npm run build && npm run buildESM",
     "test": "ts-node node_modules/.bin/tape src/**/*.test.{ts,tsx} | tap-spec",
     "bench": "ts-node node_modules/.bin/tape src/**/*.benchmark.{ts,tsx} | tap-spec",
     "coverage": "nyc --reporter=lcov --check-coverage --lines=75 --require ts-node/register tape src/**/*.test.{ts,tsx} | tap-spec; nyc report ---reporter=text",
-    "clean": "rm -rf ./lib",
+    "clean": "rm -rf esm cjs",
     "lint": "eslint . --fix",
-    "prettier": "prettier --ignore-path ./.eslintignore --ignore-unknown --write .",
+    "prettier": "prettier --ignore-path .eslintignore --ignore-unknown --write .",
     "preCommit": "npm run prettier && npm run lint && npm run coverage && npm run prepublishOnly"
   },
   "husky": {
@@ -35,22 +37,32 @@
   "license": "(MIT OR Apache-2.0)",
   "readmeFilename": "README.md",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "20",
+    "@rollup/plugin-node-resolve": "13",
+    "@rollup/plugin-typescript": "8",
+    "@types/benchmark": "2",
     "@types/tape": "4",
     "@typescript-eslint/eslint-plugin": "4",
     "@typescript-eslint/parser": "4",
+    "benchmark": "2",
     "eslint": "7",
     "eslint-config-prettier": "8",
     "eslint-plugin-prettier": "3",
     "husky": "4",
     "nyc": "15",
     "prettier": "2",
+    "rollup-plugin-esm-import-to-url": "2",
+    "rollup-plugin-terser": "7",
     "tap-nyc": "1",
     "tap-spec": "5",
     "tape": "5",
     "ts-node": "9",
     "tslib": "2",
     "typedoc": "0",
-    "typescript": "4"
+    "typescript": "4.3"
+  },
+  "peerDependencies": {
+    "tslib": "2"
   },
   "nyc": {
     "include": [

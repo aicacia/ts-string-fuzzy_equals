@@ -3,6 +3,6 @@
 .vscode/
 coverage/
 docs/
-lib/
+cjs/
+esm/
 node_modules/
-package-lock.json
