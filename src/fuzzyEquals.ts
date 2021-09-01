@@ -9,7 +9,7 @@ export function fuzzyEquals(
   if (queryLength > textLength) {
     return false;
   } else {
-    return fuzzyEqualsImpl(
+    return internalFuzzyEquals(
       caseSensitive !== true ? query.toLowerCase() : query,
       queryLength,
       caseSensitive !== true ? text.toLowerCase() : text,
@@ -18,7 +18,7 @@ export function fuzzyEquals(
   }
 }
 
-export function fuzzyEqualsImpl(
+export function internalFuzzyEquals(
   query: string,
   queryLength: number,
   text: string,

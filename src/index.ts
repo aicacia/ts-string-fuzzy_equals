@@ -1,1 +1,1 @@
-export { fuzzyEquals, fuzzyEqualsImpl } from "./fuzzyEquals";
+export { fuzzyEquals, internalFuzzyEquals } from "./fuzzyEquals";
